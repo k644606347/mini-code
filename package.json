@@ -1,0 +1,15 @@
+{
+  "name": "jikeban",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js_array.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jiangyu3",
+  "license": "ISC"
+}
