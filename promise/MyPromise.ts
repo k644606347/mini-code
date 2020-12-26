@@ -37,7 +37,7 @@ class MyPromise<T> {
         executor(resolveFn, rejectFn);
     }
 
-    #eventEmitter = new EventEmitter();
+    #eventEmitter = new EventEmitter<'fulfilled' | 'rejected'>();
 
     then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null) {
         return new MyPromise((resolve, reject) => {
@@ -79,13 +79,13 @@ class MyPromise<T> {
     }
 }
 
-class EventEmitter {
-    #listeners: { [k in string]: {
+class EventEmitter<AllowedEvent extends string = string> {
+    #listeners: { [k in AllowedEvent]: {
         fn: Function;
         once: boolean;
     }[]
-    } = {};
-    on(name: string, fn: Function) {
+    } = {} as any;
+    on(name: AllowedEvent, fn: Function) {
         let eventData = this.#listeners[name];
 
         if (!eventData) {
@@ -97,7 +97,7 @@ class EventEmitter {
             once: false
         });
     }
-    emit(name: string) {
+    emit(name: AllowedEvent) {
         const eventData = this.#listeners[name];
 
         if (!eventData) return;
