@@ -51,7 +51,7 @@ function setArrVal(arr) {
         ],
         county: [
             {
-                parentCode: '110000'
+                parentCode: '110000',
                 code: "110108",
                 name: "海淀区",
                 rate: 1,
