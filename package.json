@@ -4,6 +4,9 @@
   "description": "",
   "main": "js_array.js",
   "dependencies": {
+    "@types/core-js": "^2.5.4",
+    "core-js": "^3.10.0",
+    "core-js-pure": "^3.10.0",
     "lodash": "^4.17.21",
     "node-emoji": "^1.10.0",
     "qs": "^6.10.0",

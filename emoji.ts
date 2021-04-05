@@ -1,19 +1,21 @@
 /**
  * emoji
  * 
- * 变体选择器U+FE0F导致了字符长度增加
+ * 变体选择器(VS16: U+FE0F)导致了字符长度增加
  * 
- * 为什么会有变体选择器？
- * 思考：变体选择器可将黑白表情字符升级到漂亮的emoji，使之在支持的设备上显示emoji，而不支持的设备显示黑白字符
+ * 变体选择器VS16是什么，为什要用它：
+ * https://stackoverflow.com/questions/38100329/some-emojis-e-g-have-two-unicode-u-u2601-and-u-u2601-ufe0f-what-does
+ * 总结：变体选择器VS16用于表示彩色表情，使之在支持的设备上显示彩色表情，而不支持的设备优雅降级为对应的文本类表情
  */
 import { log } from 'console';
 import _ from 'lodash'
 import nodeEmoji from 'node-emoji'
 
 function emoji1() {
-    // const str1 = 'hello🌞🌛'
-    const str1 = '⬆️'
+    const str1 = 'hello🌞🌛'
+    // const str1 = '⬆️'
 
+    debugger
     log(str1.length)
     log(Array.from(str1).length)
     log(_.size(str1))
