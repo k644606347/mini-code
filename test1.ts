@@ -43,3 +43,18 @@ console.log(sum(['1a','2b','13c','5a', '1b', '2b']));
 // console.log('a'.match(/\d+/));
 
 // console.log('12a'.substr(-1))
+
+
+// type t = {
+//     type: 'receiverUrl' | 'component' | 'route'
+//     receiverUrl: string
+//     component: string
+//     route: string
+//   }
+
+//   type e = {
+      
+//   }
+// const d: t['type'] = {
+
+// }
