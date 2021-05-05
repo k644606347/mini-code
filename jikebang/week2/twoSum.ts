@@ -1,4 +1,12 @@
 const {log} = console
+
+/**
+ * time O(n)
+ * space O(n)
+ * @param nums 
+ * @param target 
+ * @returns 
+ */
 function twoSum(nums: number[], target: number): number[] {
     const temp: any = {}
 
