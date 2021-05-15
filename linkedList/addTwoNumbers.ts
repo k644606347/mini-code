@@ -15,9 +15,9 @@ import { ListNode } from "../utils/types";
  * @returns 
  */
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
-    let curNode1: ListNode | null = l1
-    let curNode2: ListNode | null = l2
-    let firstResult: ListNode | null = curNode1 || curNode2 ? new ListNode() : null;
+    let curNode1 = l1
+    let curNode2 = l2
+    let firstResult = curNode1 || curNode2 ? new ListNode() : null;
     let curResult = firstResult;
 
     if (!curResult)
