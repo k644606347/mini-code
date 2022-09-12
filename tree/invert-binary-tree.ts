@@ -4,6 +4,12 @@ type BinaryTree = {
     left?: BinaryTree;
     right?: BinaryTree;
 }
+
+/**
+ * by recursion
+ * @param tree 
+ * @returns 
+ */
 export function invertBinaryTree(tree?: BinaryTree): BinaryTree | undefined {
     if (!tree) return;
 
@@ -12,6 +18,26 @@ export function invertBinaryTree(tree?: BinaryTree): BinaryTree | undefined {
         left: invertBinaryTree(tree.right),
         right: invertBinaryTree(tree.left),
     })
+}
+
+export function byIteration(tree?: BinaryTree): BinaryTree | undefined {
+    if (!tree) return;
+    const result = createBinaryTree(tree);
+    const callStask: Array<BinaryTree | undefined> = [result];
+
+    while (callStask[0]) {
+        const curTree = callStask.shift();
+        if (!curTree) continue;
+        
+        // 后进先出，所以先推入right再推入left
+        const { left, right } = curTree;
+        curTree.left = right ? createBinaryTree(right) : undefined;
+        callStask.unshift(curTree.left);
+
+        curTree.right = left ? createBinaryTree(left) : undefined;
+        callStask.unshift(curTree.right);
+    }
+    return result;
 }
 
 function createBinaryTree(config: {
@@ -26,7 +52,7 @@ function createBinaryTree(config: {
 
 console.log(
     JSON.stringify(
-        invertBinaryTree({
+        byIteration({
             value: 1,
             left: {
                 value: 2,
@@ -45,7 +71,7 @@ console.log(
                 left: {
                     value: '3.1',
                     left: {
-                        value: '3.1.2'
+                        value: '3.1.1'
                     },
                 },
                 right: {
